@@ -1,0 +1,1 @@
+/Users/cloudsky/Desktop/Rust_Projects/lists/target/debug/liblists.rlib: /Users/cloudsky/Desktop/Rust_Projects/lists/src/forward_list.rs /Users/cloudsky/Desktop/Rust_Projects/lists/src/lib.rs /Users/cloudsky/Desktop/Rust_Projects/lists/src/persistent.rs
