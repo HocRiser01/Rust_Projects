@@ -77,7 +77,7 @@ pub struct Iter<'a, T> {
 }
 
 impl<T> List<T> {
-    pub fn iter(&self) -> Iter<T> { // 保证 self 生命周期包含返回的 Iter
+    pub fn iter(&self) -> Iter<T> {
         Iter { next: self.head.as_ref().map(|node| &**node) }
         // 或写成：Iter { next: self.head.as_deref() }
     }
@@ -111,7 +111,7 @@ impl<'a, T> Iterator for IterMut<'a, T> {
     type Item = &'a mut T;
 
     fn next(&mut self) -> Option<Self::Item> {
-        self.next.take().map(|node| { // 不可变引用无 `Copy` trait
+        self.next.take().map(|node| { // 可变引用无 `Copy` trait，需要 take()
             self.next = node.next.as_deref_mut();
             &mut node.elem
         })
